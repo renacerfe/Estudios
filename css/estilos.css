@@ -1,0 +1,170 @@
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+
+body {
+min-height: 100vh;
+background: linear-gradient(180deg, #0b2545, #143f6b, #1f6aa5);
+color: #ffffff;
+}
+
+/* ===== HERO ===== */
+
+.hero {
+text-align: center;
+padding: 50px 20px;
+background: radial-gradient(circle at top, #ffd86b, transparent 70%);
+}
+
+.hero-small {
+padding: 30px 20px;
+}
+
+.logo {
+width: 160px;
+margin-bottom: 15px;
+filter: drop-shadow(0 0 15px rgba(255,215,100,0.8));
+}
+
+.logo.small {
+width: 110px;
+}
+
+.hero h1 {
+font-size: 2.2rem;
+margin-bottom: 10px;
+}
+
+.hero span {
+font-weight: 300;
+font-size: 1.1rem;
+}
+
+.versiculo {
+max-width: 650px;
+margin: auto;
+font-size: 1rem;
+opacity: 0.9;
+line-height: 1.5;
+}
+
+/* ===== PANEL ===== */
+
+.panel {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 25px;
+padding: 40px 20px;
+}
+
+/* ===== CARDS ===== */
+
+.card {
+background: linear-gradient(145deg, #ffd86b, #d4a017);
+color: #2b1c00;
+padding: 25px 20px;
+border-radius: 18px;
+text-align: center;
+text-decoration: none;
+box-shadow:
+0 10px 25px rgba(0,0,0,0.35),
+inset 0 2px 5px rgba(255,255,255,0.5);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+transform: translateY(-8px);
+box-shadow:
+0 18px 35px rgba(0,0,0,0.5),
+inset 0 2px 6px rgba(255,255,255,0.6);
+}
+
+.card-static:hover {
+transform: none;
+}
+
+.card h2 {
+margin: 10px 0;
+font-size: 1.25rem;
+}
+
+.card p {
+font-size: 0.95rem;
+opacity: 0.85;
+}
+
+.card::first-letter {
+font-size: 2rem;
+display: block;
+margin-bottom: 8px;
+}
+
+/* ===== LISTA ===== */
+
+.lista-clases {
+margin-top: 15px;
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+
+.btn-clase {
+background: linear-gradient(145deg, #1f6aa5, #0b2545);
+color: #ffffff;
+padding: 12px;
+border-radius: 12px;
+text-decoration: none;
+font-weight: bold;
+box-shadow:
+inset 0 2px 4px rgba(255,255,255,0.3),
+0 6px 12px rgba(0,0,0,0.4);
+}
+
+.btn-clase:hover {
+opacity: 0.9;
+}
+
+.proximo {
+font-size: 0.9rem;
+opacity: 0.7;
+}
+
+/* ===== VOLVER ===== */
+
+.volver {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.volver a {
+color: #ffd86b;
+text-decoration: none;
+font-weight: bold;
+}
+
+/* ===== FOOTER ===== */
+
+.footer {
+text-align: center;
+padding: 20px;
+font-size: 0.85rem;
+background: rgba(0,0,0,0.25);
+opacity: 0.85;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 480px) {
+.hero h1 {
+font-size: 1.8rem;
+}
+
+.card {  
+    padding: 20px 15px;  
+}
+
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Numeros 12 | Estudios Bíblicos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<header class="hero hero-small">
+    <img src="logo.png" alt="Jesus El Arbol de la Vida" class="logo small">
+
+    <h1>Numeros 12</h1>
+    <p class="versiculo">
+        Material de estudio
+    </p>
+</header>
+
+<main class="panel">
+
+    <!-- PDF Y DIAPOSITIVAS -->
+    <div class="card">
+        📄
+        <h2>PDF y diapositivas</h2>
+        <p>Material descargable del estudio.</p>
+
+        <div class="lista-clases">
+            <a href="PDF/numeros12-presentacion.pdf" class="btn-clase">
+                📘 Presentacion
+            </a>
+
+            <a href="PDF/numeros12-diapos.pdf" class="btn-clase">
+                📑 Diapositivas
+            </a>
+        </div>
+    </div>
+
+    <!-- INFOGRAFIAS -->
+    <div class="card">
+        🖼️
+        <h2>Infografias</h2>
+        <p>Resumen visual del capitulo.</p>
+
+        <div class="lista-clases">
+            <a href="inumeros12/1.png" class="btn-clase">Infografia 1</a>
+            <a href="inumeros12/2.png" class="btn-clase">Infografia 2</a>
+            <a href="inumeros12/3.png" class="btn-clase">Infografia 3</a>
+        </div>
+    </div>
+
+</main>
+
+<div class="volver">
+    <a href="estudios.html">← Volver a Estudios</a>
+</div>
+
+<footer class="footer">
+    Jesus · El Arbol de la Vida
+</footer>
+
+</body>
+</html>

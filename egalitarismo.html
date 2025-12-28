@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigación - Renacer</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+
+    <style>
+        /* --- ESTILO DORADO Y AZUL (Sincronizado con tu proyecto) --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(180deg, #061126 0%, #163a70 100%);
+            background-attachment: fixed;
+            color: #f0f4f8;
+        }
+
+        .serif { font-family: 'Georgia', serif; }
+
+        /* Estilo para los contenedores de gráficos */
+        .chart-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Botones 3D Dorados para las pestañas */
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #f9d976;
+            border: 1px solid #d4af37;
+            padding: 10px;
+            border-radius: 8px;
+            transition: 0.3s;
+            text-align: left;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .tab-btn.active-tab {
+            background: linear-gradient(to bottom, #f9d976, #d4af37);
+            color: #1a1a1a;
+            box-shadow: 0 4px 0 #8a6d1c;
+            font-weight: bold;
+        }
+
+        /* Botón 3D de salida */
+        .btn-3d-volver {
+            text-decoration: none;
+            display: inline-block;
+            padding: 12px 30px;
+            font-weight: 900;
+            color: #1a1a1a;
+            background: linear-gradient(to bottom, #f9d976, #d4af37);
+            border-radius: 10px;
+            box-shadow: 0 5px 0 #8a6d1c;
+            text-transform: uppercase;
+        }
+
+        .btn-3d-volver:active {
+            transform: translateY(3px);
+            box-shadow: 0 2px 0 #8a6d1c;
+        }
+
+        h1, h2 { color: #f9d976; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <main class="max-w-6xl mx-auto px-4 py-12">
+
+        <section class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold serif mb-4">Egalitarismo Social y Religioso</h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                Investigación sobre la evolución de la igualdad y el liderazgo femenino en la fe.
+            </p>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div class="md:col-span-1">
+                <h2 class="text-2xl font-bold mb-6 border-l-4 border-yellow-500 pl-4">1. Fundamentos</h2>
+                <button onclick="updateOriginContent('etimologia')" id="tab-etimologia" class="tab-btn active-tab">Etimología</button>
+                <button onclick="updateOriginContent('filosofia')" id="tab-filosofia" class="tab-btn">Filosofía Política</button>
+                <button onclick="updateOriginContent('sociedad')" id="tab-sociedad" class="tab-btn">Impacto Social</button>
+            </div>
+            <div class="md:col-span-2 chart-card min-h-[300px]" id="origin-content">
+                </div>
+        </div>
+
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 border-l-4 border-yellow-500 pl-4">2. Evolución del Título "Pastora"</h2>
+            <div class="chart-card">
+                <div id="pastorasChart" class="w-full h-[400px]"></div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 border-l-4 border-yellow-500 pl-4">3. Correlación: Sociedad y Fe</h2>
+            <div class="chart-card">
+                <canvas id="socialReligiousChart" style="max-height: 400px;"></canvas>
+            </div>
+        </section>
+
+        <footer class="text-center py-12 border-t border-gray-700">
+            <a href="clases.html" class="btn-3d-volver">← Volver a Clases</a>
+            <p class="mt-8 text-gray-500 text-sm italic">© 2025 - Ministerio Renacer - Área de Investigación</p>
+        </footer>
+
+    </main>
+
+    <script>
+        // --- DATOS ---
+        const originData = {
+            etimologia: `<h3 class="text-xl font-bold text-yellow-400 mb-2">Etimología</h3><p>El término proviene del francés <i>égal</i>. Se define como la doctrina que sostiene que todos los humanos tienen el mismo valor moral y estatus ante Dios.</p>`,
+            filosofia: `<h3 class="text-xl font-bold text-yellow-400 mb-2">Filosofía</h3><p>Influenciado por la Ilustración y Alexis de Tocqueville, quien analizó la igualdad como una fuerza social imparable que afectaría a la religión.</p>`,
+            sociedad: `<h3 class="text-xl font-bold text-yellow-400 mb-2">Aplicación</h3><p>El abolicionismo y el sufragio femenino fueron los campos de batalla donde se probó la igualdad esencial de las almas antes de llegar al púlpito.</p>`
+        };
+
+        function updateOriginContent(key) {
+            document.getElementById('origin-content').innerHTML = originData[key];
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active-tab'));
+            document.getElementById(`tab-${key}`).classList.add('active-tab');
+        }
+
+        // --- INICIALIZACIÓN ---
+        document.addEventListener('DOMContentLoaded', () => {
+            updateOriginContent('etimologia');
+
+            // Plotly con colores oscuros
+            const trace1 = {
+                x: [1860, 1906, 1956, 1994],
+                y: [1, 2, 3, 4],
+                mode: 'markers+text',
+                type: 'scatter',
+                text: ['Catherine Booth', 'Calle Azusa', 'Metodismo', 'Anglicanismo'],
+                textposition: 'top center',
+                marker: { size: 15, color: '#f9d976' },
+                textfont: { color: '#ffffff' }
+            };
+
+            const layout = {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                xaxis: { gridcolor: '#333', tickcolor: '#fff', font: {color: '#fff'} },
+                yaxis: { showgrid: false, showticklabels: false },
+                margin: { t: 20, b: 20, l: 20, r: 20 }
+            };
+
+            Plotly.newPlot('pastorasChart', [trace1], layout, {responsive: true, displayModeBar: false});
+
+            // Chart.js con colores dorados
+            const ctx = document.getElementById('socialReligiousChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bubble',
+                data: {
+                    datasets: [{
+                        label: 'Hitos Históricos',
+                        data: [
+                            { x: 1848, y: 5, r: 10 },
+                            { x: 1920, y: 8, r: 15 },
+                            { x: 1965, y: 10, r: 20 }
+                        ],
+                        backgroundColor: '#d4af37'
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: { ticks: {color: '#fff'}, grid: {color: '#333'} },
+                        y: { ticks: {color: '#fff'}, grid: {color: '#333'} }
+                    },
+                    plugins: { legend: { labels: {color: '#fff'} } }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

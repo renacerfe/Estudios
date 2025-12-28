@@ -1,0 +1,545 @@
+/* --- ESTILO GLOBAL --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #061126 0%, #163a70 100%);
+    background-attachment: fixed;
+    color: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* Alineación específica por página */
+body.home-page {
+    align-items: center;
+}
+body.clases-page {
+    align-items: flex-start;
+}
+
+.container {
+    width: 90%;
+    padding: 40px 20px;
+}
+
+.home-page .container {
+    max-width: 600px;
+}
+.clases-page .container {
+    max-width: 500px;
+}
+
+/* --- Logo --- */
+.logo-placeholder {
+    margin: 0 auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.home-page .logo-placeholder {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 25px;
+    border: 3px solid #d4af37;
+    box-shadow: 0 0 25px rgba(249, 217, 118, 0.2);
+}
+.home-page .logo-placeholder:hover {
+    transform: scale(1.05);
+}
+
+.clases-page .logo-placeholder {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    border: 2px solid #d4af37;
+    box-shadow: 0 0 15px rgba(249, 217, 118, 0.2);
+}
+
+.logo-texto {
+    font-weight: bold;
+    color: #f6e27a;
+    text-transform: uppercase;
+}
+
+.home-page .logo-texto {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.clases-page .logo-texto {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* --- Título --- */
+.titulo-principal {
+    color: #f6e27a;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    font-weight: bold;
+}
+
+.home-page .titulo-principal {
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    margin-bottom: 30px;
+}
+
+.clases-page .titulo-principal {
+    font-size: 1.8rem;
+    margin-bottom: 35px;
+}
+
+/* --- Elementos de Inicio (Index) --- */
+.versiculo-container {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 30px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    margin-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.versiculo-texto {
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.versiculo-cita {
+    display: block;
+    font-weight: bold;
+    color: #f6e27a;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+}
+
+.botones-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.btn-3d-dorado {
+    text-decoration: none;
+    display: inline-block;
+    padding: 18px 45px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #2c2000;
+    background: linear-gradient(to bottom, #f6e27a, #d4af37);
+    border-radius: 50px;
+    box-shadow: 0 8px 0 #8a6d1c, 0 15px 20px rgba(0,0,0,0.4);
+    transition: all 0.15s ease;
+    text-transform: uppercase;
+    border: none;
+}
+
+.btn-3d-dorado:hover {
+    filter: brightness(1.1);
+}
+
+.btn-3d-dorado:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 #8a6d1c, 0 8px 10px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 480px) {
+    .btn-3d-dorado {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+}
+
+/* --- Elementos de Clases --- */
+.clases-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.btn-clase {
+    text-decoration: none;
+    display: block;
+    padding: 18px 25px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #2c2000; 
+    background: linear-gradient(to right, #f6e27a, #d4af37);
+    border-radius: 12px;
+    box-shadow: 0 6px 0 #8a6d1c, 0 10px 20px rgba(0,0,0,0.4);
+    transition: all 0.1s ease;
+    text-transform: uppercase;
+    border: none;
+}
+
+.btn-clase:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #8a6d1c, 0 5px 10px rgba(0,0,0,0.3);
+}
+
+.footer-nav {
+    margin-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+}
+
+.btn-volver {
+    color: #f6e27a;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    padding: 10px 25px;
+}
+
+/* --- Página de Imágenes (Galería) --- */
+body.galeria-page {
+    align-items: flex-start;
+}
+
+.galeria-page .container {
+    max-width: 800px;
+}
+
+.titulo-galeria {
+    color: #f6e27a;
+    margin-bottom: 30px;
+}
+
+.infografia {
+    width: 100%;
+    height: auto;
+    border: 2px solid #d4af37;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.btn-regresar {
+    display: inline-block;
+    margin: 30px 0;
+    color: #f6e27a;
+    text-decoration: none;
+    border: 1px solid #d4af37;
+    padding: 12px 25px;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.4);
+    transition: background 0.3s ease;
+}
+
+.btn-regresar:hover {
+    background: rgba(212, 175, 55, 0.2);
+}
+
+/* --- Página de Menú (Opciones) --- */
+body.menu-page {
+    align-items: center;
+}
+
+.menu-page .container {
+    max-width: 450px;
+}
+
+.titulo-seccion {
+    color: #f6e27a;
+    font-size: 2.2rem;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.subtitulo {
+    color: #d4af37;
+    font-size: 1rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-opcion {
+    text-decoration: none;
+    display: block;
+    margin: 20px auto;
+    padding: 22px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    border-radius: 15px;
+    text-transform: uppercase;
+    transition: all 0.1s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-opcion:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 #555, 0 5px 10px rgba(0,0,0,0.3);
+}
+
+.btn-oro {
+    color: #2c2000;
+    background: linear-gradient(to bottom, #f6e27a, #d4af37);
+    box-shadow: 0 8px 0 #8a6d1c, 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.btn-plata {
+    color: #2c3e50;
+    background: linear-gradient(to bottom, #ffffff, #cfd8dc);
+    box-shadow: 0 8px 0 #78909c, 0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* --- Página de Lección (Detalle) --- */
+.titulo-leccion {
+    color: #f6e27a;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #8a6d1c;
+    padding-bottom: 15px;
+}
+
+.descripcion {
+    font-style: italic;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+}
+
+.navegacion {
+    margin-top: 40px;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.btn-nav {
+    text-decoration: none;
+    color: #f6e27a;
+    border: 1px solid #d4af37;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.3);
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+.btn-nav:hover {
+    background: rgba(212, 175, 55, 0.2);
+}
+
+/* --- Página de Método de Estudio --- */
+.seccion-metodo {
+    background: linear-gradient(180deg, rgba(13, 28, 56, 0.8) 0%, rgba(6, 11, 26, 0.9) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 20px;
+    padding: 50px;
+    margin-bottom: 40px;
+    text-align: left;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.seccion-metodo .titulo-seccion {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    padding: 20px 25px;
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.15) 0%, rgba(0,0,0,0) 100%);
+    border-left: 6px solid #f6e27a;
+    border-bottom: none;
+    border-radius: 0 15px 15px 0;
+    color: #f6e27a;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.seccion-metodo p {
+    font-size: 1.3rem;
+    margin-bottom: 35px;
+    color: #f0f4f8;
+    line-height: 1.8;
+    padding-left: 10px;
+}
+
+.lista-metodo, .lista-plantilla {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.lista-metodo li, .lista-plantilla li {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border-left: 6px solid #d4af37;
+    line-height: 1.5;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
+}
+
+.lista-metodo li:hover, .lista-plantilla li:hover {
+    transform: translateX(8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 100%);
+    border-left-color: #f6e27a;
+}
+
+.lista-metodo li strong, .lista-plantilla li strong {
+    color: #f6e27a;
+    font-size: 1.7rem;
+    display: block;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Header Estilo Tarjeta (Subcuadro) --- */
+.header-card {
+    background: linear-gradient(160deg, rgba(22, 58, 112, 0.8) 0%, rgba(6, 17, 38, 0.9) 100%);
+    border: 2px solid #d4af37;
+    border-radius: 25px;
+    padding: 40px;
+    margin-bottom: 50px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 20px rgba(212, 175, 55, 0.1);
+    position: relative;
+    overflow: hidden;
+    animation: glow-pulse 3s infinite ease-in-out;
+}
+
+/* --- Estilo Moderno y Espiritual (Reflexión) --- */
+body.spiritual-page {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 100%);
+    background-attachment: fixed;
+    align-items: center;
+    color: #f0f4f8;
+}
+
+.spiritual-card {
+    background: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    padding: 50px 40px;
+    max-width: 500px;
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.spiritual-card:hover {
+    transform: translateY(-5px);
+}
+
+.spiritual-title {
+    color: #4f6367;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.spiritual-text {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.btn-spiritual {
+    display: inline-block;
+    text-decoration: none;
+    color: #4f6367;
+    border: 1px solid #4f6367;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-spiritual:hover {
+    background-color: #4f6367;
+    color: #ffffff;
+}
+
+/* --- Cuadro Estilo Espiritual --- */
+.cuadro {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    padding: 30px;
+    text-align: center;
+    color: #333;
+    font-family: 'Segoe UI', 'Roboto', 'Poppins', sans-serif;
+    max-width: 500px;
+    width: 90%;
+}
+
+.header-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #f6e27a, transparent);
+}
+
+.header-card .titulo-principal {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    background: linear-gradient(to bottom, #f6e27a, #bf953f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8));
+}
+
+.header-card .descripcion {
+    font-size: 1.3rem;
+    color: #d1d5db;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+@keyframes glow-pulse {
+    0%, 100% {
+        box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 20px rgba(212, 175, 55, 0.1);
+        border-color: #d4af37;
+    }
+    50% {
+        box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 20px rgba(212, 175, 55, 0.1), 0 0 25px rgba(212, 175, 55, 0.6);
+        border-color: #f6e27a;
+    }
+}
+
+/* --- Ajustes Responsivos para Método --- */
+@media (max-width: 600px) {
+    .seccion-metodo, .header-card {
+        padding: 25px;
+    }
+    .seccion-metodo .titulo-seccion {
+        font-size: 1.8rem;
+    }
+    .header-card .titulo-principal {
+        font-size: 2rem;
+    }
+    .lista-metodo li, .lista-plantilla li {
+        padding: 20px;
+    }
+}

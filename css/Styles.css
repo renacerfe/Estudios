@@ -1,0 +1,98 @@
+/* --- PALETA DE COLORES DE LA IGLESIA --- */
+:root {
+    --azul-profundo: #163a70;
+    --azul-oscuro: #061126;
+    --dorado-brillante: #f9d976;
+    --dorado-mate: #d4af37;
+    --dorado-sombra: #8a6d1c;
+    --texto-claro: #f0f4f8;
+    --blanco-cristal: rgba(255, 255, 255, 0.07);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle, var(--azul-profundo) 0%, var(--azul-oscuro) 100%);
+    background-attachment: fixed;
+    color: var(--texto-claro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    padding: 40px 20px;
+}
+
+/* --- LOGO Y TÍTULOS --- */
+.logo-placeholder {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 25px;
+    border: 3px solid var(--dorado-mate);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 25px rgba(249, 217, 118, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.logo-texto {
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: var(--dorado-brillante);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.titulo-principal {
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    color: var(--dorado-brillante);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* --- CAJAS DE CONTENIDO --- */
+.caja-estudio {
+    background: var(--blanco-cristal);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 30px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: left; /* Para mejor lectura de pasos */
+}
+
+/* --- BOTONES --- */
+.btn-3d-dorado {
+    text-decoration: none;
+    display: inline-block;
+    padding: 18px 45px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #2c2000;
+    background: linear-gradient(to bottom, var(--dorado-brillante), var(--dorado-mate));
+    border-radius: 50px;
+    box-shadow: 0 8px 0 var(--dorado-sombra), 0 15px 20px rgba(0,0,0,0.4);
+    transition: all 0.15s ease;
+    text-transform: uppercase;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.btn-3d-dorado:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 var(--dorado-sombra), 0 8px 10px rgba(0,0,0,0.3);
+}
